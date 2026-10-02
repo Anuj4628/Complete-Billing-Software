@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Billing — License Generator (Owner Only)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .card { background: #1e293b; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; width: 100%; max-width: 480px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+  .header { background: linear-gradient(135deg, #d97706, #b45309); padding: 20px 24px; }
+  .header h1 { font-size: 18px; font-weight: 700; color: white; }
+  .header p { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .body { padding: 24px; }
+  .warning { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px; font-size: 12px; color: #fca5a5; line-height: 1.5; }
+  .field { margin-bottom: 16px; }
+  label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 6px; }
+  input { width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: #e2e8f0; font-size: 13px; outline: none; transition: border-color 0.2s; }
+  input:focus { border-color: #d97706; }
+  input.error-field { border-color: #ef4444; }
+  .password-wrap { position: relative; }
+  .password-wrap input { padding-right: 40px; }
+  .eye-btn { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #64748b; cursor: pointer; font-size: 16px; }
+  .btn { width: 100%; padding: 12px; border-radius: 10px; border: none; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.2s; margin-top: 4px; }
+  .btn:hover { opacity: 0.9; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-generate { background: linear-gradient(135deg, #d97706, #b45309); color: white; }
+  .error { color: #f87171; font-size: 12px; margin-top: 6px; display: none; }
+  .error.show { display: block; }
+  .success-box { display: none; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 10px; padding: 16px; margin-top: 16px; text-align: center; }
+  .success-box.show { display: block; }
+  .success-box h3 { color: #4ade80; font-size: 15px; margin-bottom: 6px; }
+  .success-box p { color: #86efac; font-size: 12px; line-height: 1.6; }
+  .footer { padding: 14px 24px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-size: 11px; color: #475569; }
+  .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+  .info-tag { display: inline-block; background: rgba(245,158,11,0.15); color: #fbbf24; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1>🔑 GST License Generator <span class="info-tag">OWNER ONLY</span></h1>
+    <p>Customer ke liye .lic file banao — WhatsApp se bhejo — Done!</p>
+  </div>
+  <div class="body">
+    <div class="warning">
+      ⚠️ <strong>SECURITY: Machine-Locked License</strong><br>
+      Har .lic file ek specific computer se judi hoti hai. Yeh file kisi aur machine pe kaam nahi karega. Customer ko sahi Machine ID bhejna zaroori hai.
+    </div>
+
+    <!-- Owner Password -->
+    <div class="field">
+      <label>Owner Password *</label>
+      <div class="password-wrap">
+        <input type="password" id="ownerPass" placeholder="Owner password daalo" />
+        <button class="eye-btn" onclick="togglePass()" id="eyeBtn">👁</button>
+      </div>
+      <div class="error" id="passError">Galat password!</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Customer Details -->
+    <div class="field">
+      <label>Customer Naam *</label>
+      <input type="text" id="custName" placeholder="Jaise: Ramesh Kumar" />
+      <div class="error" id="nameError">Naam zaroori hai</div>
+    </div>
+
+    <div class="field">
+      <label>Company / Shop Naam</label>
+      <input type="text" id="compName" placeholder="Jaise: Sharma Traders" />
+    </div>
+
+    <div class="field">
+      <label>Phone Number</label>
+      <input type="tel" id="phone" placeholder="10 digit mobile number" maxlength="10" />
+    </div>
+
+    <div class="field">
+      <label>Machine ID (Customer ka Computer ID) *</label>
+      <input type="text" id="machineId" placeholder="Jaise: A1B2-C3D4-E5F6-G7H8" />
+      <div class="error" id="machineIdError">Machine ID zaroori hai</div>
+    </div>
+
+    <div class="field">
+      <label>License Expiry Date *</label>
+      <input type="date" id="expiryDate" />
+      <div class="error" id="dateError">Expiry date zaroori hai</div>
+    </div>
+
+    <button class="btn btn-generate" id="genBtn" onclick="generateLicense()">
+      ⬇️ .lic File Generate Karo & Download Karo
+    </button>
+
+    <div class="success-box" id="successBox">
+      <h3>✅ License File Ready!</h3>
+      <p>
+        <strong id="successName"></strong> ke liye .lic file download ho gayi!<br><br>
+        Ab yeh file <strong>WhatsApp ya Email</strong> se customer ko bhejo.<br>
+        Customer "Import License" karke app unlock kar lega. ✅
+      </p>
+    </div>
+  </div>
+  <div class="footer">GST Billing App — Owner Tool &nbsp;·&nbsp; Keep this file private</div>
+</div>
+
+<script>
+// ── SAME secret key jo app mein hai ──
+const SIGN_SECRET = 'GST-OWNER-9f3a2b1c-7e4d-11ee-8c99-0242ac120002'
+const OWNER_PASSWORD = 'OWNER@9999'
+
+function togglePass() {
+  const inp = document.getElementById('ownerPass')
+  inp.type = inp.type === 'password' ? 'text' : 'password'
+}
+
+// Pure JS HMAC-SHA256
+async function hmacSHA256(secret, message) {
+  const enc = new TextEncoder()
+  const key = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
+  const sig  = await crypto.subtle.sign('HMAC', key, enc.encode(message))
+  return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('')
+}
+
+async function encodeLicense(data) {
+  const payload = btoa(unescape(encodeURIComponent(JSON.stringify(data))))
+  const sig     = await hmacSHA256(SIGN_SECRET, payload)
+  return `GST-LIC::${payload}::${sig}`
+}
+
+function showError(id, show) {
+  document.getElementById(id).classList.toggle('show', show)
+  const input = document.getElementById(id.replace('Error',''))
+  if (input) input.classList.toggle('error-field', show)
+}
+
+async function generateLicense() {
+  // Reset errors
+  ['passError','nameError','dateError','machineIdError'].forEach(e => showError(e, false))
+  document.getElementById('successBox').classList.remove('show')
+
+  const pass     = document.getElementById('ownerPass').value.trim()
+  const name     = document.getElementById('custName').value.trim()
+  const comp     = document.getElementById('compName').value.trim()
+  const phone    = document.getElementById('phone').value.trim()
+  const machineId = document.getElementById('machineId').value.trim().toUpperCase()
+  const expiry   = document.getElementById('expiryDate').value
+
+  let valid = true
+  if (pass !== OWNER_PASSWORD) { showError('passError', true); valid = false }
+  if (!name) { showError('nameError', true); valid = false }
+  if (!machineId) { showError('machineIdError', true); valid = false }
+  if (!expiry) { showError('dateError', true); valid = false }
+  if (!valid) return
+
+  // Check expiry not in past
+  const today = new Date(); today.setHours(0,0,0,0)
+  const expiryD = new Date(expiry); expiryD.setHours(0,0,0,0)
+  if (expiryD < today) {
+    document.getElementById('dateError').textContent = 'Expiry date aaj se aage honi chahiye!'
+    showError('dateError', true)
+    return
+  }
+
+  const btn = document.getElementById('genBtn')
+  btn.disabled = true
+  btn.textContent = '⏳ Generating...'
+
+  try {
+    const licData = {
+      customer_name: name,
+      company_name:  comp,
+      phone:         phone,
+      machine_id:    machineId,
+      expiry_date:   expiry,
+      issued_at:     new Date().toISOString(),
+      issued_by:     'GST Billing Owner',
+    }
+    const content  = await encodeLicense(licData)
+    const filename = `GST-License-${name.replace(/\s+/g,'-')}-${machineId}.lic`
+
+    // Download file
+    const blob = new Blob([content], { type: 'text/plain' })
+    const url  = URL.createObjectURL(blob)
+    const a    = document.createElement('a')
+    a.href = url; a.download = filename
+    document.body.appendChild(a); a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+
+    document.getElementById('successName').textContent = name
+    document.getElementById('successBox').classList.add('show')
+  } catch(e) {
+    alert('Error: ' + e.message)
+  } finally {
+    btn.disabled = false
+    btn.textContent = '⬇️ .lic File Generate Karo & Download Karo'
+  }
+}
+
+// Set default expiry to 1 year from today
+const d = new Date(); d.setFullYear(d.getFullYear() + 1)
+document.getElementById('expiryDate').value = d.toISOString().split('T')[0]
+
+// Enter key support
+document.addEventListener('keydown', e => { if (e.key === 'Enter') generateLicense() })
+</script>
+</body>
+</html>
