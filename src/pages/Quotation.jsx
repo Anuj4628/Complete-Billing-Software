@@ -89,7 +89,7 @@ export default function Quotation() {
       label: 'Quotation No',
       render: (v, row) => (
         <span
-          className="font-mono text-red-600 dark:text-red-400 font-bold hover:underline cursor-pointer"
+          className="font-mono text-blue-600 dark:text-blue-400 font-bold hover:underline cursor-pointer"
           onClick={() => navigate(`/quotations/${row.id}`)}
         >
           {v}
@@ -199,7 +199,7 @@ export default function Quotation() {
       {/* ── HEADER ── */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-red-50 dark:bg-red-950/30 text-red-600">
+          <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/30 text-blue-600">
             <FileText size={22} />
           </div>
           <div>
@@ -223,7 +223,7 @@ export default function Quotation() {
             <input
               type="text"
               placeholder="Search by Quotation No, Customer, RFQ..."
-              className="w-full text-xs pl-9 pr-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full text-xs pl-9 pr-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
             />
@@ -234,7 +234,7 @@ export default function Quotation() {
         <div className="flex items-center gap-2">
           <span className="text-xs text-gray-500 font-medium">Status:</span>
           <select
-            className="text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-2.5 py-1.5 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer"
+            className="text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-2.5 py-1.5 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
             value={statusFilter}
             onChange={e => handleStatusChange(e.target.value)}
           >

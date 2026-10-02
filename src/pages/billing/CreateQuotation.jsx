@@ -629,7 +629,7 @@ export default function CreateQuotation() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
@@ -674,7 +674,7 @@ export default function CreateQuotation() {
           <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 shadow-sm transition-all">
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-100 dark:border-gray-700/60">
               <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600">
+                <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-600">
                   <Building2 size={18} />
                 </div>
                 <h2 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100">
@@ -684,7 +684,7 @@ export default function CreateQuotation() {
               <button
                 type="button"
                 onClick={() => setAddCustModal(true)}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 hover:text-red-700 dark:text-red-400 hover:underline transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 hover:underline transition-colors"
               >
                 <UserPlus size={14} />
                 + Add New Customer
@@ -698,7 +698,7 @@ export default function CreateQuotation() {
                 </label>
                 <div className="relative">
                   <select
-                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2.5 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 transition-shadow appearance-none cursor-pointer"
+                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2.5 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow appearance-none cursor-pointer"
                     value={selectedCustomerId}
                     onChange={e => handleSelectCustomer(e.target.value)}
                   >
@@ -721,7 +721,7 @@ export default function CreateQuotation() {
                   </label>
                   <input
                     type="text"
-                    className="w-full text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-3 py-2 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-3 py-2 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Enter customer name"
                     value={customerName}
                     onChange={e => setCustomerName(e.target.value)}
@@ -733,7 +733,7 @@ export default function CreateQuotation() {
                   </label>
                   <input
                     type="text"
-                    className="w-full text-xs font-mono uppercase rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-3 py-2 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-xs font-mono uppercase rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-3 py-2 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="e.g. 27AABCS5678K1Z4"
                     value={customerGstin}
                     onChange={e => setCustomerGstin(e.target.value.toUpperCase())}
@@ -744,7 +744,7 @@ export default function CreateQuotation() {
                     Customer State *
                   </label>
                   <select
-                    className="w-full text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-3 py-2 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-3 py-2 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={customerState}
                     onChange={e => setCustomerState(e.target.value)}
                   >
@@ -759,7 +759,7 @@ export default function CreateQuotation() {
                   </label>
                   <input
                     type="text"
-                    className="w-full text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-3 py-2 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 px-3 py-2 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Factory / Office Address"
                     value={customerAddress}
                     onChange={e => setCustomerAddress(e.target.value)}
@@ -774,7 +774,7 @@ export default function CreateQuotation() {
                     type="checkbox"
                     checked={hasConsignee}
                     onChange={e => setHasConsignee(e.target.checked)}
-                    className="rounded text-red-600 focus:ring-red-500 w-4 h-4"
+                    className="rounded text-blue-600 focus:ring-blue-500 w-4 h-4"
                   />
                   <span>Consignee (Ship To) is different from Buyer (Bill To)</span>
                 </label>
@@ -840,7 +840,7 @@ export default function CreateQuotation() {
           {/* CARD 2: QUOTATION PARAMETERS & TERMS */}
           <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 shadow-sm transition-all">
             <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-gray-100 dark:border-gray-700/60">
-              <div className="p-2 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600">
+              <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-600">
                 <Calendar size={18} />
               </div>
               <h2 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100">
@@ -868,7 +868,7 @@ export default function CreateQuotation() {
                   </label>
                   <input
                     type="date"
-                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={quotationDate}
                     onChange={e => setQuotationDate(e.target.value)}
                   />
@@ -879,7 +879,7 @@ export default function CreateQuotation() {
                   </label>
                   <input
                     type="date"
-                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={validUntilDate}
                     onChange={e => setValidUntilDate(e.target.value)}
                   />
@@ -893,7 +893,7 @@ export default function CreateQuotation() {
                   </label>
                   <input
                     type="text"
-                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="e.g. ENQ/LT/HE/2026/01"
                     value={rfqReference}
                     onChange={e => setRfqReference(e.target.value)}
@@ -905,7 +905,7 @@ export default function CreateQuotation() {
                   </label>
                   <input
                     type="text"
-                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="e.g. Rajesh Sharma"
                     value={salesperson}
                     onChange={e => setSalesperson(e.target.value)}
@@ -916,7 +916,7 @@ export default function CreateQuotation() {
                     Currency
                   </label>
                   <select
-                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer"
+                    className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3.5 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                     value={currency}
                     onChange={e => setCurrency(e.target.value)}
                   >
@@ -933,7 +933,7 @@ export default function CreateQuotation() {
           <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 shadow-sm transition-all">
             <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-gray-100 dark:border-gray-700/60">
               <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600">
+                <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-600">
                   <Package size={18} />
                 </div>
                 <div>
@@ -974,7 +974,7 @@ export default function CreateQuotation() {
                 <button
                   type="button"
                   onClick={addItem}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-semibold shadow-sm transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-colors"
                 >
                   <Plus size={14} />
                   + Add Item
@@ -1009,7 +1009,7 @@ export default function CreateQuotation() {
                         <textarea
                           rows={2}
                           ref={el => itemDescRefs.current[idx] = el}
-                          className="w-full text-xs font-normal rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 p-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 resize-y placeholder:text-gray-400 leading-relaxed"
+                          className="w-full text-xs font-normal rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 p-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y placeholder:text-gray-400 leading-relaxed"
                           placeholder="Enter complete material/product specs (e.g. SS 304 Seamless Pipe, 2 inch NB, SCH 40)..."
                           value={it.description}
                           onChange={e => updateItem(idx, 'description', e.target.value)}
@@ -1022,7 +1022,7 @@ export default function CreateQuotation() {
                           type="number"
                           step="any"
                           min="0"
-                          className="w-full text-xs font-bold text-center rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 p-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                          className="w-full text-xs font-bold text-center rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 p-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                           value={it.quantity}
                           onChange={e => updateItem(idx, 'quantity', e.target.value)}
                         />
@@ -1031,7 +1031,7 @@ export default function CreateQuotation() {
                       {/* UNIT */}
                       <td className="py-2 px-2">
                         <select
-                          className="w-full text-xs font-medium rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 p-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer"
+                          className="w-full text-xs font-medium rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 p-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                           value={it.unit}
                           onChange={e => updateItem(idx, 'unit', e.target.value)}
                         >
@@ -1049,7 +1049,7 @@ export default function CreateQuotation() {
                             type="number"
                             step="any"
                             min="0"
-                            className="w-full text-xs font-semibold text-right pl-6 pr-2.5 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                            className="w-full text-xs font-semibold text-right pl-6 pr-2.5 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="0.00"
                             value={it.rate}
                             onChange={e => updateItem(idx, 'rate', e.target.value)}
@@ -1104,7 +1104,7 @@ export default function CreateQuotation() {
               <button
                 type="button"
                 onClick={addItem}
-                className="text-xs font-bold text-red-600 hover:text-red-700 hover:underline"
+                className="text-xs font-bold text-blue-600 hover:text-blue-700 hover:underline"
               >
                 + Add another item
               </button>
@@ -1115,7 +1115,7 @@ export default function CreateQuotation() {
           <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 shadow-sm transition-all">
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-100 dark:border-gray-700/60">
               <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600">
+                <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-600">
                   <FileText size={18} />
                 </div>
                 <div>
@@ -1130,7 +1130,7 @@ export default function CreateQuotation() {
               <button
                 type="button"
                 onClick={addTerm}
-                className="text-xs font-semibold text-red-600 hover:text-red-700 hover:underline"
+                className="text-xs font-semibold text-blue-600 hover:text-blue-700 hover:underline"
               >
                 + Add Term
               </button>
@@ -1144,7 +1144,7 @@ export default function CreateQuotation() {
                   </span>
                   <input
                     type="text"
-                    className="flex-1 text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="flex-1 text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={t}
                     onChange={e => updateTerm(idx, e.target.value)}
                   />
@@ -1167,7 +1167,7 @@ export default function CreateQuotation() {
               </label>
               <textarea
                 rows={2}
-                className="w-full text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 p-2.5 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full text-xs rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 p-2.5 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Any special packaging instructions or payment notes..."
                 value={notes}
                 onChange={e => setNotes(e.target.value)}
@@ -1185,7 +1185,7 @@ export default function CreateQuotation() {
             {/* Header with Supply Type Badge */}
             <div className="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-gray-700/60">
               <div className="flex items-center gap-2">
-                <FileText size={18} className="text-red-600" />
+                <FileText size={18} className="text-blue-600" />
                 <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-gray-100">
                   Summary & Taxes
                 </h3>
@@ -1229,7 +1229,7 @@ export default function CreateQuotation() {
                     type="number"
                     step="any"
                     min="0"
-                    className="w-full text-xs font-mono font-semibold text-right pl-6 pr-2.5 py-1.5 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-xs font-mono font-semibold text-right pl-6 pr-2.5 py-1.5 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={freight}
                     onChange={e => setFreight(e.target.value)}
                   />
@@ -1244,7 +1244,7 @@ export default function CreateQuotation() {
                     type="number"
                     step="any"
                     min="0"
-                    className="w-full text-xs font-mono font-semibold text-right pl-6 pr-2.5 py-1.5 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full text-xs font-mono font-semibold text-right pl-6 pr-2.5 py-1.5 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-750 text-gray-900 dark:text-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     value={packingCharges}
                     onChange={e => setPackingCharges(e.target.value)}
                   />
@@ -1290,9 +1290,9 @@ export default function CreateQuotation() {
               </div>
             </div>
 
-            {/* ── PROMINENT RED GRAND TOTAL CARD ── */}
-            <div className="bg-gradient-to-br from-red-600 via-red-600 to-rose-700 text-white rounded-xl p-4 sm:p-5 shadow-lg shadow-red-500/20 space-y-1">
-              <div className="text-[11px] font-bold tracking-wider uppercase text-red-100">
+            {/* ── PROMINENT BLUE GRAND TOTAL CARD ── */}
+            <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white rounded-xl p-4 sm:p-5 shadow-lg shadow-blue-500/20 space-y-1">
+              <div className="text-[11px] font-bold tracking-wider uppercase text-blue-100">
                 Grand Total (Inc. All Taxes)
               </div>
               <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight">
@@ -1316,7 +1316,7 @@ export default function CreateQuotation() {
                 Quotation Status
               </label>
               <select
-                className="w-full text-xs font-semibold rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer"
+                className="w-full text-xs font-semibold rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                 value={quotationStatus}
                 onChange={e => setQuotationStatus(e.target.value)}
               >
@@ -1334,7 +1334,7 @@ export default function CreateQuotation() {
                 type="button"
                 onClick={handleSaveQuotation}
                 disabled={saving}
-                className="w-full py-3 px-4 rounded-xl bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {saving ? (
                   <>
@@ -1385,7 +1385,7 @@ export default function CreateQuotation() {
           <div>
             <textarea
               rows={7}
-              className="w-full text-xs font-mono rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 p-3 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:text-gray-400"
+              className="w-full text-xs font-mono rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 p-3 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
               placeholder={`Example:\nSS 304 Seamless Pipe\t50\tMTR\t1450\nSS 316 Seamless Pipe\t25\tMTR\t2200\nCarbon Steel Pipe\t100\tMTR\t850`}
               value={bulkText}
               onChange={e => handleBulkTextChange(e.target.value)}
@@ -1439,7 +1439,7 @@ export default function CreateQuotation() {
               type="button"
               onClick={handleApplyBulkPaste}
               disabled={bulkPreview.length === 0}
-              className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-xs disabled:opacity-40 transition-colors"
+              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs disabled:opacity-40 transition-colors"
             >
               Add {bulkPreview.length} Item(s) to Quotation
             </button>
@@ -1462,7 +1462,7 @@ export default function CreateQuotation() {
               </label>
               <input
                 type="text"
-                className={`w-full text-xs rounded-lg border px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 ${
+                className={`w-full text-xs rounded-lg border px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   custErrors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                 }`}
                 placeholder="ABC Steel Industries"
@@ -1478,7 +1478,7 @@ export default function CreateQuotation() {
               </label>
               <input
                 type="text"
-                className="w-full text-xs font-mono uppercase rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full text-xs font-mono uppercase rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="27AABCS5678K1Z4"
                 value={newCust.gstin}
                 onChange={e => setNewCust(p => ({ ...p, gstin: e.target.value.toUpperCase() }))}
@@ -1491,7 +1491,7 @@ export default function CreateQuotation() {
               </label>
               <input
                 type="text"
-                className="w-full text-xs rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full text-xs rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="9876543210"
                 value={newCust.phone}
                 onChange={e => setNewCust(p => ({ ...p, phone: e.target.value }))}
@@ -1504,7 +1504,7 @@ export default function CreateQuotation() {
               </label>
               <input
                 type="email"
-                className="w-full text-xs rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full text-xs rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="purchase@abcsteel.com"
                 value={newCust.email}
                 onChange={e => setNewCust(p => ({ ...p, email: e.target.value }))}
@@ -1516,7 +1516,7 @@ export default function CreateQuotation() {
                 State
               </label>
               <select
-                className="w-full text-xs rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full text-xs rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={newCust.state}
                 onChange={e => setNewCust(p => ({ ...p, state: e.target.value }))}
               >
@@ -1532,7 +1532,7 @@ export default function CreateQuotation() {
               </label>
               <input
                 type="text"
-                className="w-full text-xs rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full text-xs rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Plot No. 12, Industrial Area"
                 value={newCust.billing_address}
                 onChange={e => setNewCust(p => ({ ...p, billing_address: e.target.value }))}
@@ -1548,7 +1548,7 @@ export default function CreateQuotation() {
               type="button"
               onClick={handleSaveNewCustomer}
               disabled={savingCust}
-              className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-xs disabled:opacity-40 transition-colors"
+              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs disabled:opacity-40 transition-colors"
             >
               {savingCust ? 'Saving...' : 'Save & Select Customer'}
             </button>

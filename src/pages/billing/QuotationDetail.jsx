@@ -84,7 +84,7 @@ export default function QuotationDetail() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="w-10 h-10 border-4 border-red-600 border-t-transparent rounded-full animate-spin" />
+        <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
@@ -121,7 +121,7 @@ export default function QuotationDetail() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <button
           onClick={() => navigate('/quotations')}
-          className="flex items-center gap-1.5 text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          className="flex items-center gap-1.5 text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:white transition-colors"
         >
           <ArrowLeft size={16} /> Back to Quotations
         </button>
@@ -141,7 +141,7 @@ export default function QuotationDetail() {
             type="button"
             onClick={handleDownloadPDF}
             disabled={pdfLoading}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-xs shadow-sm transition-colors disabled:opacity-50"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-sm transition-colors disabled:opacity-50"
           >
             {pdfLoading ? (
               <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -415,7 +415,7 @@ export default function QuotationDetail() {
                   {items.reduce((s, it) => s + parseFloat(it.quantity || 0), 0)}
                 </td>
                 <td className="py-2.5 px-3 text-right border-r border-gray-900 dark:border-gray-600">-</td>
-                <td className="py-2.5 px-3 text-right font-mono text-sm text-red-600 dark:text-red-400">
+                <td className="py-2.5 px-3 text-right font-mono text-sm text-blue-600 dark:text-blue-400">
                   {formatCurrency(grandTotal, '₹')}
                 </td>
               </tr>
